@@ -31,7 +31,7 @@ export default function Home() {
     return () => {
       window.removeEventListener("wheel", handleWheel);
     };
-  }, [wrapRef, lastPage]); // wrapRef와 lastPage가 변경될 때마다 useEffect를 호출함
+  }, [wrapRef, lastPage]); //wrapRef와 lastPage가 변경될 때마다 useEffect를 호출
 
   return (
     <div className="main-home">
