@@ -38,25 +38,25 @@ export default function Home() {
 
   useEffect(() => {
     const handleWheel = (event) => {
-      // if (window.innerWidth > 800) {
-      // handleWheel 이라는 함수 선언
-      event.preventDefault(); // 이벤트 초기화 막음
-      if (!wrapRef.current) return; // wrapRef가 유효하지 않으면 종료
-      if (event.deltaY > 0) {
-        page++;
+      if (window.innerWidth > 800) {
+        // handleWheel 이라는 함수 선언
+        event.preventDefault(); // 이벤트 초기화 막음
+        if (!wrapRef.current) return; // wrapRef가 유효하지 않으면 종료
+        if (event.deltaY > 0) {
+          page++;
+        }
+        if (event.deltaY < 0) {
+          page--;
+        }
+        if (page < 0) {
+          page = 0;
+        }
+        if (page > lastPage) {
+          page = lastPage;
+        }
+        console.log(event.deltaY);
+        wrapRef.current.style.top = page * -100 + "vh";
       }
-      if (event.deltaY < 0) {
-        page--;
-      }
-      if (page < 0) {
-        page = 0;
-      }
-      if (page > lastPage) {
-        page = lastPage;
-      }
-      console.log(event.deltaY);
-      wrapRef.current.style.top = page * -100 + "vh";
-      // }
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
@@ -69,7 +69,7 @@ export default function Home() {
   const handleLabelClick = () => {
     const submitBtnReal = document.querySelector(".submit-btn-real");
     if (submitBtnReal) {
-      submitBtnReal.style.backgroundColor = "green";
+      submitBtnReal.style.backgroundColor = "#00C76C";
       alert("Egoist : 이메일이 제출되었습니다");
     }
   };
