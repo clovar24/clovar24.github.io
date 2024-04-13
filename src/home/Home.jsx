@@ -22,7 +22,7 @@ export default function Home() {
         emailjs
           .sendForm(
             "service_u722ejp",
-            "template_1bpiiwj",
+            "template_eqaiuas",
             document.getElementById("contact-form"),
             "7IJNHK35t9CaKpGLo"
           )
