@@ -17,17 +17,23 @@ export default function Home() {
 
         // formData 넣어주고
         const formData = new FormData(this);
-        formData.append("user_id", "egoist");
 
         // emailJS API로 이메일 보내기
-        emailjs.sendForm("service_u722ejp", "template_1bpiiwj", this).then(
-          function (response) {
-            alert("이메일이 성공적으로 전송되었습니다.");
-          },
-          function (error) {
-            alert("이메일 전송 중 오류가 발생했습니다.");
-          }
-        );
+        emailjs
+          .sendForm(
+            "service_u722ejp",
+            "template_1bpiiwj",
+            document.getElementById("contact-form"),
+            "7IJNHK35t9CaKpGLo"
+          )
+          .then(
+            function (response) {
+              alert("이메일이 성공적으로 전송되었습니다.");
+            },
+            function (error) {
+              alert("이메일 전송 중 오류가 발생했습니다.");
+            }
+          );
       });
     });
   }, []); // useEffect의 의존성 배열을 빈 배열로 전달하여 한 번만 실행되도록 합니다.
