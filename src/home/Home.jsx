@@ -1,13 +1,15 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./home.css";
 import logoImage from "./images/title.png";
+import iconImage from "./images/icon.png";
 import Header from "../header/Header";
 import PageOne from "../paging/PageOne";
 import PageTwo from "../paging/PageTwo";
 import PageThree from "../paging/PageThree";
 import $ from "jquery";
 import emailjs from "emailjs-com"; // emailjs-com 패키지를 import 합니다.
-
+import Footer from "../footer/Footer";
+import Modal from "../modal/Modal";
 export default function Home() {
   useEffect(() => {
     $(document).ready(function () {
@@ -60,7 +62,6 @@ export default function Home() {
         if (page > lastPage) {
           page = lastPage;
         }
-        console.log(event.deltaY);
         wrapRef.current.style.top = page * -100 + "vh";
       }
     };
@@ -84,9 +85,13 @@ export default function Home() {
     <div className="main-home">
       <Header />
       <div className="home-wrap">
+        <Modal />
         <div className="fixed-area">
           <div className="intro-box">
             <div className="logoimg">
+              <div className="icon-width">
+                <img className="img-width" src={iconImage} alt="Logo" />
+              </div>
               <img className="img-width" src={logoImage} alt="Logo" />
             </div>
             <div>
@@ -139,6 +144,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

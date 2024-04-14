@@ -4,7 +4,7 @@ import Home from "./home/Home";
 
 function App() {
   return (
-    <div class="App">
+    <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
