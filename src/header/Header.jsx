@@ -10,7 +10,7 @@ export default function Header() {
             <img src={headerImg} alt="about" className="img-width" />
           </Link>
         </div>
-        <div className="header-ask">문의하기</div>
+        <div></div>
       </div>
     </div>
   );
