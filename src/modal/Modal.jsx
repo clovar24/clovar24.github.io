@@ -4,7 +4,7 @@ import $ from "jquery";
 
 export default function Modal() {
   const modalRef = useRef(null);
-
+  const focusTest = useRef(null);
   useEffect(() => {
     const handleFocus = () => {
       if (modalRef.current) {
@@ -19,12 +19,6 @@ export default function Modal() {
       $(".modal").off("shown.bs.modal", handleFocus);
     };
   }, []);
-
-  const openModal = () => {
-    $(".modal").show();
-    $(".home-wrap").css("position", "fixed");
-    $(".home-wrap").css("top", "0");
-  };
 
   const closeModal = () => {
     $(".modal").hide();

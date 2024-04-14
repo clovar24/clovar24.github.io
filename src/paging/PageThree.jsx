@@ -5,7 +5,6 @@ import googleImg from "./images/google.png";
 import $ from "jquery";
 export default function PageThree() {
   // 모달 상태를 관리하는 useState 훅 사용
-  const [modalOpen, setModalOpen] = useState(false);
 
   // 모달을 열기 위한 핸들러 함수
   const openModal = () => {
@@ -13,10 +12,6 @@ export default function PageThree() {
     $(".fixed-area").focus();
   };
 
-  // 모달을 닫기 위한 핸들러 함수
-  const closeModal = () => {
-    $(".modal").hide();
-  };
   return (
     <div>
       <div className="step3">
