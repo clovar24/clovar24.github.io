@@ -1,18 +1,37 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import clovarImg from "./images/clovar.png";
 import $ from "jquery";
+
 export default function Modal() {
-  // 모달을 열기 위한 핸들러 함수
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleFocus = () => {
+      if (modalRef.current) {
+        modalRef.current.focus();
+      }
+    };
+
+    // 모달이 열릴 때 포커스를 주도록 이벤트를 등록합니다.
+    $(".modal").on("shown.bs.modal", handleFocus);
+
+    return () => {
+      $(".modal").off("shown.bs.modal", handleFocus);
+    };
+  }, []);
+
   const openModal = () => {
     $(".modal").show();
+    $(".home-wrap").css("position", "fixed");
+    $(".home-wrap").css("top", "0");
   };
 
-  // 모달을 닫기 위한 핸들러 함수
   const closeModal = () => {
     $(".modal").hide();
   };
+
   return (
-    <div className="modal">
+    <div className="modal" tabIndex="-1" ref={modalRef}>
       <div className="pos-rel modal-content">
         <div className="closeIcon" onClick={closeModal}>
           x
@@ -21,7 +40,6 @@ export default function Modal() {
           <img src={clovarImg} alt="about" className="img-width" />
         </div>
         <div>
-          {" "}
           <span className="ddate">출시 D-53!</span>
           <br /> <br />
           이메일을 남겨주시면 출시 알림을 드립니다.

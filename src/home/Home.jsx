@@ -11,16 +11,14 @@ import emailjs from "emailjs-com"; // emailjs-com 패키지를 import 합니다.
 import Footer from "../footer/Footer";
 import Modal from "../modal/Modal";
 export default function Home() {
+  const homeWrapRef = useRef(null); // home-wrap 요소를 참조할 useRef 생성
+
   useEffect(() => {
     $(document).ready(function () {
-      // form submit
       $("#contact-form").on("submit", function (event) {
         event.preventDefault();
-
-        // formData 넣어주고
         const formData = new FormData(this);
 
-        // emailJS API로 이메일 보내기
         emailjs
           .sendForm(
             "service_u722ejp",
@@ -38,18 +36,17 @@ export default function Home() {
           );
       });
     });
-  }, []); // useEffect의 의존성 배열을 빈 배열로 전달하여 한 번만 실행되도록 합니다.
+  }, []);
 
-  const wrapRef = useRef(null); // 리렌더링하지 않게 useRef 사용 : wrapRef 초기값은 null로!
-  let page = 0; // 0부터 2까지 페이징
+  const wrapRef = useRef(null);
+  let page = 0;
   const lastPage = 2;
 
   useEffect(() => {
     const handleWheel = (event) => {
       if (window.innerWidth > 800) {
-        // handleWheel 이라는 함수 선언
-        event.preventDefault(); // 이벤트 초기화 막음
-        if (!wrapRef.current) return; // wrapRef가 유효하지 않으면 종료
+        event.preventDefault();
+        if (!wrapRef.current) return;
         if (event.deltaY > 0) {
           page++;
         }
@@ -71,7 +68,7 @@ export default function Home() {
     return () => {
       window.removeEventListener("wheel", handleWheel);
     };
-  }, [wrapRef, lastPage]); //wrapRef와 lastPage가 변경될 때마다 useEffect를 호출
+  }, [wrapRef, lastPage]);
 
   const handleLabelClick = () => {
     const submitBtnReal = document.querySelector(".submit-btn-real");
@@ -81,6 +78,13 @@ export default function Home() {
     }
   };
 
+  const openModal = () => {
+    $(".modal").show();
+    // home-wrap 요소의 scrollTop을 0으로 설정하여 맨 위로 이동
+    if (homeWrapRef.current) homeWrapRef.current.scrollTop = 0;
+    // home-wrap 요소에 포커스 설정
+    if (homeWrapRef.current) homeWrapRef.current.focus();
+  };
   return (
     <div className="main-home">
       <Header />
