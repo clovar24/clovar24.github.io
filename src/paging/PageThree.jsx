@@ -9,6 +9,7 @@ export default function PageThree() {
   // 모달을 열기 위한 핸들러 함수
   const openModal = () => {
     $(".modal").show();
+    $(".modal-wrap").show();
     $(".fixed-area").focus();
   };
 

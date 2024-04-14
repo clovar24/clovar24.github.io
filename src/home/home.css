@@ -70,6 +70,7 @@
     flex-direction: column !important;
     margin: 0;
     padding: 0;
+    position: relative !important;
     overflow: hidden;
     font-size: 3rem;
   }
@@ -136,8 +137,20 @@
 .step3-img-div .img-width{
   width: 100% !important;
 }
+.modal-wrap{
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute !important;
+}
 .modal-content{
+  margin: 12% auto !important; 
   width: 50% !important;
+}
+.modal{
+  height: auto !important;
+  position: absolute !important;
+  bottom: 0 !important;
 }
 }
 

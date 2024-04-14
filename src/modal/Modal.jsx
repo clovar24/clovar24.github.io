@@ -25,18 +25,20 @@ export default function Modal() {
   };
 
   return (
-    <div className="modal" tabIndex="-1" ref={modalRef}>
-      <div className="pos-rel modal-content">
-        <div className="closeIcon" onClick={closeModal}>
-          x
-        </div>
-        <div className="modal-img">
-          <img src={clovarImg} alt="about" className="img-width" />
-        </div>
-        <div>
-          <span className="ddate">출시 D-53!</span>
-          <br /> <br />
-          이메일을 남겨주시면 출시 알림을 드립니다.
+    <div className="modal-wrap">
+      <div className="modal" tabIndex="-1" ref={modalRef}>
+        <div className="pos-rel modal-content">
+          <div className="closeIcon" onClick={closeModal}>
+            x
+          </div>
+          <div className="modal-img">
+            <img src={clovarImg} alt="about" className="img-width" />
+          </div>
+          <div>
+            <span className="ddate">출시 D-53!</span>
+            <br /> <br />
+            이메일을 남겨주시면 출시 알림을 드립니다.
+          </div>
         </div>
       </div>
     </div>

@@ -98,6 +98,7 @@ export default function Home() {
 
   const openModal = () => {
     $(".modal").show();
+    $(".modal-wrap").show();
     $(".main-home").css("position", "fixed");
     // home-wrap 요소의 scrollTop을 0으로 설정하여 맨 위로 이동
     if (homeWrapRef.current) homeWrapRef.current.scrollTop = 0;
