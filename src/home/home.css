@@ -485,3 +485,10 @@
   font-size: 1.5rem;
   color: black;
 }
+.link{
+  text-decoration: none;
+  color: black;
+  opacity: 78%;
+  display: flex;
+  gap: 3rem;
+}
