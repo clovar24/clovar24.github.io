@@ -433,13 +433,14 @@
   color: #858585;
   background-color: #ECECEC;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   font-size: 1rem;
   padding: 1rem;
   justify-content: center;
   gap: 2rem;
   position: fixed;
   bottom: 0;
+  height: 3rem;
 }
 
 /* 모달창 */
@@ -491,4 +492,103 @@
   opacity: 78%;
   display: flex;
   gap: 3rem;
+}
+
+/* 스크롤 */
+.footer .pos-rel{
+  position: relative;
+  width: 100%;
+  height: 3rem;
+}
+.scroll-btn{
+  width: 100%;
+  /* height: 3rem; */
+  position: absolute;
+  bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scroll-btn .scroll-container {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-right: 2rem;
+}
+
+.scroll-btn .chevron {
+  position: absolute;
+  width: 28px;
+  height: 8px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.scroll-btn .chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.scroll-btn .chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.scroll-btn .chevron:before,
+.scroll-btn .chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #393737;
+  opacity: 70%;
+}
+
+.scroll-btn .chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.scroll-btn .chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+.text {
+  display: block;
+  margin-top: 75px;
+  margin-left: -30px;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .25;
+  animation: pulse 2s linear alternate infinite;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
 }
