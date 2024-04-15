@@ -10,7 +10,7 @@ export default function Footer() {
               <div class="chevron"></div>
               <div class="chevron"></div>
               <div class="chevron"></div>
-              <span class="text">Scroll down</span>
+              <span class="text"></span>
               <a class="text" href="https://naegele.it">
                 See it in action
               </a>
