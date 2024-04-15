@@ -175,7 +175,7 @@ export default function Home() {
           <div className="container">
             <PageTwo />
           </div>
-          <div className="container">
+          <div className="container container-3">
             <PageThree />
           </div>
         </div>
