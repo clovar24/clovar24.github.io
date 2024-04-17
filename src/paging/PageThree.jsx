@@ -12,7 +12,7 @@ export default function PageThree() {
 
   const trackAppDownload = () => {
     // 어플 다운로드 클릭 시 gtag 호출
-    gtag("event", "어플다운로드클릭", {
+    window.gtag("event", "어플다운로드클릭", {
       event_category: "어플다운로드",
       event_label: "어플다운로드",
     });
