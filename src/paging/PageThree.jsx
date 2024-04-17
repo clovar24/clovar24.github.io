@@ -4,13 +4,18 @@ import appImg from "./images/app.png";
 import googleImg from "./images/google.png";
 import $ from "jquery";
 export default function PageThree() {
-  // 모달 상태를 관리하는 useState 훅 사용
-
-  // 모달을 열기 위한 핸들러 함수
   const openModal = () => {
     $(".modal").show();
     $(".modal-wrap").show();
     $(".fixed-area").focus();
+  };
+
+  const trackAppDownload = () => {
+    // 어플 다운로드 클릭 시 gtag 호출
+    gtag("event", "어플다운로드클릭", {
+      event_category: "어플다운로드",
+      event_label: "어플다운로드",
+    });
   };
 
   return (
@@ -21,22 +26,24 @@ export default function PageThree() {
             <img src={reviewImg} alt="about" className="img-width" />
           </div>
           <div className="step3-app">
-            <div
-              className="step3-app-div"
-              onClick="gtag(‘event’, ‘어플다운로드클릭’, {‘event_category’ : ‘어플다운로드’, ‘event_label’ : ‘어플다운로드’});"
-            >
-              {/* 이미지 클릭 시 모달 열도록 클릭 이벤트 추가 */}
+            <div className="step3-app-div">
               <img
                 src={appImg}
                 alt="about"
                 className="app-img-width"
-                onClick={openModal}
+                onClick={() => {
+                  openModal();
+                  trackAppDownload();
+                }}
               />
               <img
                 src={googleImg}
                 alt="about"
                 className="app-img-width"
-                onClick={openModal}
+                onClick={() => {
+                  openModal();
+                  trackAppDownload();
+                }}
               />
             </div>
           </div>
