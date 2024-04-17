@@ -21,7 +21,10 @@ export default function PageThree() {
             <img src={reviewImg} alt="about" className="img-width" />
           </div>
           <div className="step3-app">
-            <div className="step3-app-div">
+            <div
+              className="step3-app-div"
+              onclick="gtag(‘event’, ‘어플 다운로드 클릭’ {‘event_category’ : ‘어플 다운로드’, ‘event_label’ : ‘어플 다운로드’});"
+            >
               {/* 이미지 클릭 시 모달 열도록 클릭 이벤트 추가 */}
               <img
                 src={appImg}
